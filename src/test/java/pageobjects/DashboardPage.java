@@ -7,13 +7,12 @@ import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class DashboardPage extends BasePage {
+public class DashboardPage extends PageHeader {
 
-    private final static SelenideElement pageHeader = $(".page-header");
-
-    public SelenideElement getPageHeader() {
-        return pageHeader;
+    public void test(){
     }
+
+
 
 
 }

@@ -1,6 +1,6 @@
 package api;
 
-import api.args.BodyArgs;
+import api.models.args.BodyArgs;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 

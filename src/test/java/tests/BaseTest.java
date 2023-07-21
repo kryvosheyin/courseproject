@@ -9,12 +9,12 @@ import java.sql.Connection;
 
 public class BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp(){
         Configuration.browser = "chrome";
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void cleanUp(){
         Selenide.closeWindow();
         Selenide.closeWebDriver();

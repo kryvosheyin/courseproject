@@ -18,7 +18,7 @@ public class BaseTest {
     ProjectActions projectAction = new ProjectActions();
 
 
-    @BeforeTest
+    @BeforeSuite
     public void setUp(){
         Configuration.browser = "chrome";
         userId = userAction.createUser(USER_NAME, USER_PASSWORD);
@@ -34,7 +34,7 @@ public class BaseTest {
         Selenide.closeWebDriver();
     }
 
-    @AfterTest
+    @AfterSuite
     public void cleanUp(){
         userAction.deleteUser(userId);
         projectAction.removeProject(projectId);

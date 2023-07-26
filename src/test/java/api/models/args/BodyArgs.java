@@ -1,4 +1,4 @@
-package api.args;
+package api.models.args;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

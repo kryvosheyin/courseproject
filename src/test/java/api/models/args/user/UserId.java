@@ -1,4 +1,4 @@
-package api.args;
+package api.models.args.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,5 +10,5 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserId {
-    private Integer id;
+    private Integer user_id;
 }

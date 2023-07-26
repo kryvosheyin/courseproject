@@ -1,4 +1,4 @@
-package api.args;
+package api.models.args.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
@@ -16,7 +16,4 @@ public class UserParams {
     private String name;
     private String email;
     private String role;
-    private UserId user_id;
-
-
 }

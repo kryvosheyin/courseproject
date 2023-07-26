@@ -2,28 +2,34 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import pageobjects.DashboardPage;
 import pageobjects.LoginPage;
+
+import static utils.EnvVariables.*;
 
 public class TestLogin extends BaseTest {
 
-    private final static String userName = "alex";
-    private final static String password = "qwe123!@#";
-
-
-    @Test
+    @Test(description = "Test loging with valid credentials")
     public void logInValidData() {
-//       Assert.assertTrue(new LoginPage().logIn(userName, password).getUrl().contains("dashboard"), "The user was not able to access dashboard");
-       new LoginPage().logIn(userName, password).getPageHeader().shouldBe(Condition.visible);
+        new LoginPage().logInValid(USER_NAME, USER_PASSWORD).mainSection().shouldBe(Condition.visible);
     }
 
-    @Test
-    public void loginInvalidData() {
-//        Assert.assertFalse(new LoginPage().logIn("test", "test").getUrl().contains("dashboard"), "The user was able to access the dashbord");
-        new LoginPage().logIn("userName", "password").getPageHeader().shouldBe(Condition.visible);
-
+    @Test(description = "Test loging with invalid credentials")
+    public void loginInvalidUserNameTest() {
+        new LoginPage().logInInvalidCredentials(INVALID_USER_NAME, USER_PASSWORD)
+                .getValidationError()
+                .shouldBe(Condition.visible)
+                .shouldHave(Condition.text("Bad username or password"));
     }
 
+    @Test(description = "Verifying that user is logged out")
+    public void logOutTest() {
+        new LoginPage().logInValid(USER_NAME, USER_PASSWORD)
+                .mainSection().shouldBe(Condition.visible);
+        Assert.assertTrue(new DashboardPage().logOut().getUrl().contains("login"), "User is not on login page");
+
+    }
 }
 
 

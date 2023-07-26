@@ -3,8 +3,8 @@
 
     <test name="Regression testing">
         <classes>
-<!--            <class name="Tests.TestGetDynamicMessage"/>-->
-<!--            <class name="Tests.TestRecords"/>-->
+            <class name="tests.TestLogin"/>
+            <class name="tests.TestCreateProject"/>
         </classes>
 
     </test>

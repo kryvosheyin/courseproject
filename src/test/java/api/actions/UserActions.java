@@ -1,8 +1,9 @@
-package api;
+package api.actions;
 
-import api.args.BodyArgs;
-import api.args.UserId;
-import api.args.UserParams;
+import api.BaseApiRequest;
+import api.models.args.BodyArgs;
+import api.models.args.user.UserId;
+import api.models.args.user.UserParams;
 import api.models.Result;
 import io.restassured.response.Response;
 
@@ -16,7 +17,7 @@ import static utils.EnvProperties.*;
 
 
 
-public class CreateUser extends BaseApiRequest {
+public class UserActions extends BaseApiRequest {
 
 
     public String createUser(String username, String password) {
@@ -54,7 +55,5 @@ public class CreateUser extends BaseApiRequest {
         return (boolean) response.as(Result.class).getResult();
 
     }
-
-
 
 }

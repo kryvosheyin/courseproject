@@ -1,4 +1,4 @@
-package api.models.args;
+package api.models.args.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

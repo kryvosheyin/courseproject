@@ -2,11 +2,10 @@ package api.actions;
 
 import api.BaseApiRequest;
 import api.models.args.BodyArgs;
-import api.models.args.UserId;
-import api.models.args.UserParams;
+import api.models.args.user.UserId;
+import api.models.args.user.UserParams;
 import api.models.Result;
 import io.restassured.response.Response;
-import org.testng.annotations.Test;
 
 import static api.enums.UserRoles.USER;
 import static api.methods.User.CREATE_USER;

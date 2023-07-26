@@ -1,4 +1,4 @@
-package api.models.args;
+package api.models.args.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,46 +1,35 @@
 package tests;
 
-import api.actions.UserActions;
 import com.codeborne.selenide.Condition;
+import org.testng.Assert;
 import org.testng.annotations.*;
+import pageobjects.DashboardPage;
 import pageobjects.LoginPage;
-import pageobjects.PageHeader;
+
+import static utils.EnvVariables.*;
 
 public class TestLogin extends BaseTest {
 
-    private final static String userName = "alex-new";
-    private final static String password = "qwe123!@#";
-
-    private String userId;
-
-    UserActions action = new UserActions();
-
-    @BeforeMethod
-    public void setUp() {
-        userId = action.createUser(userName, password);
-    }
-
-    @Test
+    @Test(description = "Test loging with valid credentials")
     public void logInValidData() {
-        new LoginPage().logInValid(userName, password).getPageHeader().shouldBe(Condition.visible);
+        new LoginPage().logInValid(USER_NAME, USER_PASSWORD).mainSection().shouldBe(Condition.visible);
     }
 
-
-
-    @Test
-    public void loginInvalidData() {
-//        Assert.assertFalse(new LoginPage().logIn("test", "test").getUrl().contains("dashboard"), "The user was able to access the dashbord");
-        new LoginPage().logInInvalidCredentials("userName", "password")
+    @Test(description = "Test loging with invalid credentials")
+    public void loginInvalidUserNameTest() {
+        new LoginPage().logInInvalidCredentials(INVALID_USER_NAME, USER_PASSWORD)
                 .getValidationError()
                 .shouldBe(Condition.visible)
                 .shouldHave(Condition.text("Bad username or password"));
     }
 
-    @AfterMethod
-    public void cleanUp() {
-        action.deleteUser(userId);
-    }
+    @Test(description = "Verifying that user is logged out")
+    public void logOutTest() {
+        new LoginPage().logInValid(USER_NAME, USER_PASSWORD)
+                .mainSection().shouldBe(Condition.visible);
+        Assert.assertTrue(new DashboardPage().logOut().getUrl().contains("login"), "User is not on login page");
 
+    }
 }
 
 

@@ -5,8 +5,9 @@ import api.models.Result;
 import api.models.args.BodyArgs;
 import api.models.args.project.ProjectId;
 import api.models.args.project.ProjectParams;
+import api.response_bodies.project.ProjectBody;
+import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
-import org.testng.annotations.Test;
 
 import java.util.List;
 
@@ -59,5 +60,16 @@ public class ProjectActions extends BaseApiRequest {
         response.then().statusCode(200);
         return (Boolean) response.as(Result.class).getResult();
 
+    }
+
+    public Result<ProjectBody> getProjectById(String projectId){
+
+        BodyArgs body = BodyArgs.builder()
+                .method(GET_PROJECT_BY_ID)
+                .params(new ProjectId(projectId))
+                .build();
+
+        Response response = postRequest(API_USER, API_TOKEN, body);
+        return response.as(new TypeRef<Result<ProjectBody>>() {});
     }
 }

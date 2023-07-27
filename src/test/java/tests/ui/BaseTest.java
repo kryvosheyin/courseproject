@@ -6,6 +6,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.*;
 
+import static utils.EnvProperties.BROWSER_HEADLESS;
+import static utils.EnvProperties.BROWSER_NAME;
 import static utils.EnvVariables.*;
 
 
@@ -20,7 +22,8 @@ public class BaseTest {
 
     @BeforeSuite
     public void setUp(){
-        Configuration.browser = "chrome";
+        Configuration.browser = BROWSER_NAME;
+        Configuration.headless= BROWSER_HEADLESS;
         userId = userAction.createUser(USER_NAME, USER_PASSWORD);
         projectId = projectAction.createProject(PROJECT_API, userId, API_IDENTIFIER);
         projectAction.addProjectUser(projectId, userId);

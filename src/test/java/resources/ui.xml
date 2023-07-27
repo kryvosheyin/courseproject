@@ -1,14 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Use tests automation">
+<suite name="ui" >
 
-    <test name="Regression testing">
+    <test name="UI tests">
         <classes>
             <class name="tests.ui.TestLogin"/>
             <class name="tests.ui.TestCreateProject"/>
             <class name="tests.ui.TestTasks"></class>
-            <class name="tests.api.TaskTests"></class>
-            <class name="tests.api.ProjectTests"></class>
-            <class name="tests.api.UserTests"></class>
         </classes>
 
     </test>

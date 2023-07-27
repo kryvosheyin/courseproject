@@ -10,4 +10,7 @@ public class EnvVariables {
 
     public final static String PROJECT_API = PropertiesReader.getPropertyValue(FILE_PATH, FILE_NAME, "projectApi");
     public final static String API_IDENTIFIER = PropertiesReader.getPropertyValue(FILE_PATH, FILE_NAME, "apiIdentifier");
+    public final static String USER_FOR_API_TESTS = PropertiesReader.getPropertyValue(FILE_PATH, FILE_NAME, "apiTestsUser");
+    public final static String IDENTIFIER_FOR_API_TESTS= PropertiesReader.getPropertyValue(FILE_PATH, FILE_NAME, "apiTestsIdentifier");
+    public final static String PROJECT_FOR_API_TESTS = PropertiesReader.getPropertyValue(FILE_PATH, FILE_NAME, "apiIdentifier");
 }

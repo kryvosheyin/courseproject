@@ -1,6 +1,5 @@
-package tests;
+package tests.ui;
 
-import jdk.jfr.Description;
 import org.testng.annotations.Test;
 import pageobjects.LoginPage;
 

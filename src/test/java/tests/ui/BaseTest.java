@@ -22,7 +22,6 @@ public class BaseTest {
     public void setUp(){
         Configuration.browser = "chrome";
         userId = userAction.createUser(USER_NAME, USER_PASSWORD);
-        System.out.println("NEWLY CREATED USER ===>>>> "+ userId);
         projectId = projectAction.createProject(PROJECT_API, userId, API_IDENTIFIER);
         projectAction.addProjectUser(projectId, userId);
     }

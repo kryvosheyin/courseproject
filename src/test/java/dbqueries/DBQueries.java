@@ -5,37 +5,30 @@ import org.example.User;
 
 import java.sql.*;
 
+import static utils.EnvProperties.*;
+
 public class DBQueries {
 
-    private final static String URL="jdbc:mariadb://localhost:3306/kanboard";
-    private final static String USER= "kanboard";
-    private final static String PASSWORD= "kanboard-secret";
 
     public static Connection connect() throws SQLException{
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
 
-    public static String getName(){
-        String selectQuery = String.format("Select * from users where email = 'alex@alex.test'");
-        String name = "temp";
+    public static Integer getObjectId(String table, String param, String value){
+        String selectQuery = String.format("Select * from %s where %s = '%s'", table, param, value);
+        int id=0;
         try (Connection connection  = connect()){
             PreparedStatement statement = connection.prepareStatement(selectQuery);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()){
-            name = resultSet.getString("name");
+            id = resultSet.getInt("id");
             }
 
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
-        return name;
+        return id;
     }
-
-    public static void main(String[] args) {
-        System.out.println(getName());
-    }
-
-
 }

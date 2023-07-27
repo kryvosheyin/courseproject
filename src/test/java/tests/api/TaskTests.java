@@ -27,8 +27,8 @@ public class TaskTests {
 
     @BeforeClass
     public void setUp(){
-        userId = userActions.createUser(USER_NAME, USER_PASSWORD);
-        projectId = projectActions.createProject(PROJECT_API, userId, API_IDENTIFIER);
+        userId = userActions.createUser("userapi", "qwe123!@#");
+        projectId = projectActions.createProject("projectapi", userId, "APIIdent");
         projectActions.addProjectUser(projectId, userId);
     }
 

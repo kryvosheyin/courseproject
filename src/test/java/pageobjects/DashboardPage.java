@@ -18,11 +18,6 @@ public class DashboardPage extends MainSectionElements {
         new LoginPage().logInValid(USER_NAME, USER_PASSWORD).clickCreateProject().submitProjectForm(projectName, identifier);
     }
 
-    @Step("Verifying that main section is visible")
-    public static Boolean mainSectionIsVisible(){
-        return mainSection().is(Condition.visible) ? true : false;
-    }
-
     @Step("Loging out")
     public LoginPage logOut(){
         userMenuDropdown().shouldBe(Condition.visible).click();
@@ -44,6 +39,12 @@ public class DashboardPage extends MainSectionElements {
         myProjectsButton().click();
         specificProject(projectName).shouldBe(Condition.visible);
         return this;
+    }
+
+    @Step("Finding project by name and accessing the project page")
+    public ProjectPage accessProjectPage(String project){
+        specificProject(project).click();
+        return new ProjectPage();
     }
 
 

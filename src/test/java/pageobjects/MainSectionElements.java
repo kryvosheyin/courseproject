@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class MainSectionElements extends PageHeader{
 
-    public static SelenideElement mainSection(){
+    public SelenideElement mainSection(){
         return $("#main");
     }
 

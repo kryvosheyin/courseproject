@@ -3,8 +3,9 @@
 
     <test name="Regression testing">
         <classes>
-            <class name="tests.TestLogin"/>
-            <class name="tests.TestCreateProject"/>
+            <class name="tests.ui.TestLogin"/>
+            <class name="tests.ui.TestCreateProject"/>
+            <class name="tests.ui.TestTasks"></class>
         </classes>
 
     </test>

@@ -6,6 +6,9 @@
             <class name="tests.ui.TestLogin"/>
             <class name="tests.ui.TestCreateProject"/>
             <class name="tests.ui.TestTasks"></class>
+            <class name="tests.api.TaskTests"></class>
+            <class name="tests.api.ProjectTests"></class>
+            <class name="tests.api.UserTests"></class>
         </classes>
 
     </test>
